@@ -46,6 +46,13 @@ expense-tracker:
     title: Expense Tracker API
     description: REST API for tracking personal expenses.
     version: v1
+  security:
+    jwt:
+      # Set JWT_SECRET to a Base64-encoded random value of at least 32 bytes.
+      secret: ${JWT_SECRET:}
+      issuer: ${JWT_ISSUER:expense-tracker}
+      access-token-ttl: ${JWT_ACCESS_TOKEN_TTL:15m}
+      refresh-token-ttl: ${JWT_REFRESH_TOKEN_TTL:7d}
 
 logging:
   level:
