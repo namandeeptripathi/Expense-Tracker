@@ -6,7 +6,7 @@ Spring Boot 3.5 / Java 21 foundation for the Expense Tracker API.
 
 - Java 21
 - Maven 3.9+
-- MySQL 8+
+- MySQL 8+(src/main/java/com/namandeep/expensetracker/entity/Expense.java)
 
 ## Run locally
 
