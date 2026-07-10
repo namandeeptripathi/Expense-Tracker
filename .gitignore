@@ -1,0 +1,17 @@
+# Build output
+target/
+
+# IDE metadata
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+
+# OS files
+.DS_Store
+
+# Local environment overrides and secrets
+.env
+.env.*
+!*.env.example
