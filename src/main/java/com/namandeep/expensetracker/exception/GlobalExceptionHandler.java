@@ -36,6 +36,11 @@ public class GlobalExceptionHandler {
         return response(HttpStatus.NOT_FOUND, exception.getMessage(), request, Map.of());
     }
 
+    @ExceptionHandler(IncomeNotFoundException.class)
+    ResponseEntity<ApiError> handleIncomeNotFound(IncomeNotFoundException exception, HttpServletRequest request) {
+        return response(HttpStatus.NOT_FOUND, exception.getMessage(), request, Map.of());
+    }
+
     @ExceptionHandler(CategoryNotFoundException.class)
     ResponseEntity<ApiError> handleCategoryNotFound(CategoryNotFoundException exception, HttpServletRequest request) {
         return response(HttpStatus.NOT_FOUND, exception.getMessage(), request, Map.of());
@@ -53,6 +58,11 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(InvalidExpenseQueryException.class)
     ResponseEntity<ApiError> handleInvalidExpenseQuery(InvalidExpenseQueryException exception, HttpServletRequest request) {
+        return response(HttpStatus.BAD_REQUEST, exception.getMessage(), request, Map.of());
+    }
+
+    @ExceptionHandler(InvalidIncomeQueryException.class)
+    ResponseEntity<ApiError> handleInvalidIncomeQuery(InvalidIncomeQueryException exception, HttpServletRequest request) {
         return response(HttpStatus.BAD_REQUEST, exception.getMessage(), request, Map.of());
     }
 

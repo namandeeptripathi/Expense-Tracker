@@ -33,3 +33,6 @@ date-range, and amount-range filters.
 
 Categories are managed at `/api/v1/categories`. They are private to the Bearer-token user; a category
 with referenced expenses must supply `reassignToCategoryId` when deleted.
+
+Income management is available at `/api/v1/incomes`. Income records are private to the Bearer-token user
+and are structured for later dashboard, reporting, and budget aggregation features.
