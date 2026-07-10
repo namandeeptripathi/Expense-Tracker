@@ -35,7 +35,7 @@ public class ExpenseServiceImpl implements ExpenseService {
     @Transactional
     public ExpenseResponse create(String userEmail, CreateExpenseRequest request) {
         User user = currentUser(userEmail);
-        Category category = resolveCategory(request.category());
+        Category category = resolveCategory(request.category(), user);
         Expense expense = expenseMapper.toEntity(request, user, category);
         return expenseMapper.toResponse(expenseRepository.save(expense));
     }
@@ -45,7 +45,7 @@ public class ExpenseServiceImpl implements ExpenseService {
     public ExpenseResponse update(String userEmail, Long expenseId, UpdateExpenseRequest request) {
         User user = currentUser(userEmail);
         Expense expense = findOwnedExpense(expenseId, user.getId());
-        expenseMapper.updateEntity(expense, request, resolveCategory(request.category()));
+        expenseMapper.updateEntity(expense, request, resolveCategory(request.category(), user));
         return expenseMapper.toResponse(expense);
     }
 
@@ -89,9 +89,12 @@ public class ExpenseServiceImpl implements ExpenseService {
                 .orElseThrow(() -> new ExpenseNotFoundException("Expense not found: " + expenseId));
     }
 
-    private Category resolveCategory(String categoryName) {
+    private Category resolveCategory(String categoryName, User user) {
         String normalizedName = categoryName.trim().toLowerCase(Locale.ROOT);
-        return categoryRepository.findByNameIgnoreCase(normalizedName)
-                .orElseGet(() -> categoryRepository.save(Category.builder().name(categoryName.trim()).build()));
+        return categoryRepository.findByUserIdAndNameIgnoreCase(user.getId(), normalizedName)
+                .orElseGet(() -> categoryRepository.save(Category.builder()
+                        .name(categoryName.trim())
+                        .user(user)
+                        .build()));
     }
 }

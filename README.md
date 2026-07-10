@@ -30,3 +30,6 @@ Flyway creates the authentication tables during startup. The API documentation i
 Authenticated expense management is available under `/api/v1/expenses`. Each expense is scoped to the
 Bearer-token user and supports pagination, allow-listed sorting, title search, category/payment-method,
 date-range, and amount-range filters.
+
+Categories are managed at `/api/v1/categories`. They are private to the Bearer-token user; a category
+with referenced expenses must supply `reassignToCategoryId` when deleted.

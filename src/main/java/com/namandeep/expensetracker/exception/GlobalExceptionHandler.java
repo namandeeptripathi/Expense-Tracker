@@ -36,6 +36,21 @@ public class GlobalExceptionHandler {
         return response(HttpStatus.NOT_FOUND, exception.getMessage(), request, Map.of());
     }
 
+    @ExceptionHandler(CategoryNotFoundException.class)
+    ResponseEntity<ApiError> handleCategoryNotFound(CategoryNotFoundException exception, HttpServletRequest request) {
+        return response(HttpStatus.NOT_FOUND, exception.getMessage(), request, Map.of());
+    }
+
+    @ExceptionHandler({CategoryAlreadyExistsException.class, CategoryInUseException.class})
+    ResponseEntity<ApiError> handleCategoryConflict(RuntimeException exception, HttpServletRequest request) {
+        return response(HttpStatus.CONFLICT, exception.getMessage(), request, Map.of());
+    }
+
+    @ExceptionHandler(InvalidCategoryRequestException.class)
+    ResponseEntity<ApiError> handleInvalidCategoryRequest(InvalidCategoryRequestException exception, HttpServletRequest request) {
+        return response(HttpStatus.BAD_REQUEST, exception.getMessage(), request, Map.of());
+    }
+
     @ExceptionHandler(InvalidExpenseQueryException.class)
     ResponseEntity<ApiError> handleInvalidExpenseQuery(InvalidExpenseQueryException exception, HttpServletRequest request) {
         return response(HttpStatus.BAD_REQUEST, exception.getMessage(), request, Map.of());
