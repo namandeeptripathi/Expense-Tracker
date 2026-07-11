@@ -440,17 +440,3 @@ GitHub: https://github.com/namandeeptripathi
 ---
 
 ⭐ If you found this project helpful, consider giving it a star.
-
-
-# 👨‍💻 Author
-
-**Naman Deep Tripathi**
-
-Java Backend Developer
-
-GitHub:
-https://github.com/namandeeptripathi
-
----
-
-⭐ If you like this project, consider giving it a star.
