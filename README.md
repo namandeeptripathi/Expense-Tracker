@@ -200,6 +200,33 @@ src
 
 ---
 
+# 🚧 Project Status
+
+Current Status: **Backend Completed ✅**
+
+This project currently provides a production-style REST API built with Spring Boot.
+
+### Completed
+
+- ✅ JWT Authentication
+- ✅ User Management
+- ✅ Expense Management
+- ✅ Income Management
+- ✅ Category Management
+- ✅ Budget Management
+- ✅ Reports
+- ✅ Swagger Documentation
+- ✅ Flyway Database Migration
+- ✅ MySQL Integration
+
+### Planned
+
+- 🔜 React Frontend
+- 🔜 Interactive Dashboard
+- 🔜 Charts & Analytics
+- 🔜 Docker Support
+- 🔜 Cloud Deployment
+
 # 👨‍💻 Author
 
 **Naman Deep Tripathi**
