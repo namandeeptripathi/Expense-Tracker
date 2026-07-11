@@ -106,7 +106,7 @@ The application follows modern backend development practices with **JWT Authenti
 
 ### Swagger API
 
-> *(Add screenshot here later)*
+![Swagger API](screenshots/swagger-home.png)
 
 ---
 
