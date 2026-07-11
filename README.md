@@ -220,13 +220,61 @@ Repository
 MySQL
 ```
 
+
+
 # 📡 API Documentation
 
-Swagger UI
+The Expense Tracker API uses **Swagger (OpenAPI 3)** for interactive documentation.
 
-```
+After starting the application locally, open:
+
+```text
 http://localhost:8080/swagger-ui/index.html
 ```
+
+The OpenAPI specification is available at:
+
+```text
+http://localhost:8080/v3/api-docs
+```
+
+## 📋 API Endpoints
+
+### Authentication
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| POST | `/api/v1/auth/register` | Register a new user |
+| POST | `/api/v1/auth/login` | Login and receive JWT token |
+| POST | `/api/v1/auth/refresh` | Refresh access token |
+| POST | `/api/v1/auth/logout` | Logout current user |
+
+### Expenses
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/api/v1/expenses` | Get all expenses |
+| POST | `/api/v1/expenses` | Create a new expense |
+| PUT | `/api/v1/expenses/{id}` | Update an expense |
+| DELETE | `/api/v1/expenses/{id}` | Delete an expense |
+
+### Categories
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/api/v1/categories` | Get all categories |
+| POST | `/api/v1/categories` | Create a category |
+| PUT | `/api/v1/categories/{id}` | Update a category |
+| DELETE | `/api/v1/categories/{id}` | Delete a category |
+
+### Income
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/api/v1/incomes` | Get all income |
+| POST | `/api/v1/incomes` | Add income |
+| PUT | `/api/v1/incomes/{id}` | Update income |
+| DELETE | `/api/v1/incomes/{id}` | Delete income |
 
 ---
 
@@ -283,6 +331,14 @@ Expense-Tracker
 ├── LICENSE
 ├── pom.xml
 └── .gitignore
+
+# 🗄 Database Design
+
+The database follows a relational design using **MySQL**.
+
+The Entity Relationship Diagram (ERD) is available here:
+
+➡️ **[View ER Diagram](assets/ER-Diagram.md)**
 ```
 ```
 
@@ -343,6 +399,17 @@ This project currently provides a production-style REST API built with Spring Bo
 - 🔜 Docker Support
 - 🔜 Cloud Deployment
 
+# 🧪 API Testing
+
+This project uses **Swagger OpenAPI** for interactive API testing.
+
+After starting the application, open:
+
+```text
+http://localhost:8080/swagger-ui/index.html
+```
+
+A Postman collection will be added in a future update.
 # 👨‍💻 Author
 
 **Naman Deep Tripathi**
