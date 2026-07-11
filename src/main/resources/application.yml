@@ -1,10 +1,13 @@
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
   application:
     name: expense-tracker
   datasource:
     url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:expense_tracker}?useSSL=true&requireSSL=false&serverTimezone=UTC
-    username: ${DB_USERNAME:expense_tracker}
-    password: ${DB_PASSWORD:}
+    username: root
+    password: aman2341
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     open-in-view: false
@@ -17,6 +20,12 @@ spring:
     show-sql: false
   lifecycle:
     timeout-per-shutdown-phase: 30s
+  flyway:
+    # Set to false to disable Flyway during development.
+    # Note: If disabled, change spring.jpa.hibernate.ddl-auto to 'update' so Hibernate creates the tables automatically.
+    enabled: true
+    # Required for MySQL 9.x+ compatibility with Flyway 10+ community version.
+    community-db-support-enabled: true
 
 server:
   shutdown: graceful
@@ -34,10 +43,7 @@ management:
       show-details: never
 
 springdoc:
-  api-docs:
-    path: /v3/api-docs
   swagger-ui:
-    path: /swagger-ui.html
     operations-sorter: alpha
     tags-sorter: alpha
 
@@ -49,7 +55,7 @@ expense-tracker:
   security:
     jwt:
       # Set JWT_SECRET to a Base64-encoded random value of at least 32 bytes.
-      secret: ${JWT_SECRET:}
+      secret: VGhpc0lzQVN1cGVyU2VjdXJlQmFzZTY0S2V5Rm9yRXhwZW5zZVRyYWNrZXJBUEkhISE=
       issuer: ${JWT_ISSUER:expense-tracker}
       access-token-ttl: ${JWT_ACCESS_TOKEN_TTL:15m}
       refresh-token-ttl: ${JWT_REFRESH_TOKEN_TTL:7d}

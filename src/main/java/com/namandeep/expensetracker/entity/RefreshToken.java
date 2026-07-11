@@ -36,7 +36,7 @@ public class RefreshToken {
     private Long id;
 
     @Setter(AccessLevel.NONE)
-    @Column(name = "token_hash", nullable = false, unique = true, length = 64)
+    @Column(name = "token_hash", nullable = false, unique = true, length = 64, columnDefinition = "char(64)")
     private String tokenHash;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
