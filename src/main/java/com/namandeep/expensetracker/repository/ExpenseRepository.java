@@ -3,6 +3,7 @@ package com.namandeep.expensetracker.repository;
 import com.namandeep.expensetracker.entity.Expense;
 import com.namandeep.expensetracker.entity.Category;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,6 +32,13 @@ public interface ExpenseRepository extends JpaRepository<Expense, Long>, JpaSpec
 
     @Query("select count(expense) from Expense expense where expense.user.id = :userId")
     long countByUserId(@Param("userId") Long userId);
+
+    @Query("select coalesce(sum(expense.amount), 0) from Expense expense "
+            + "where expense.user.id = :userId and expense.expenseDate between :startDate and :endDate")
+    BigDecimal sumAmountByUserIdAndExpenseDateBetween(
+            @Param("userId") Long userId,
+            @Param("startDate") LocalDate startDate,
+            @Param("endDate") LocalDate endDate);
 
     @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query("update Expense expense set expense.category = :targetCategory where expense.category.id = :sourceCategoryId")

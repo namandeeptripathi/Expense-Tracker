@@ -6,5 +6,4 @@ import com.namandeep.expensetracker.dto.DashboardResponse;
 public interface DashboardService {
 
     DashboardResponse getDashboard(String userEmail);
-
 }
