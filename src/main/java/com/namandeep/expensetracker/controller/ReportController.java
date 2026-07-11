@@ -3,6 +3,7 @@ package com.namandeep.expensetracker.controller;
 import com.namandeep.expensetracker.dto.ReportResponse;
 import com.namandeep.expensetracker.service.ReportService;
 import com.namandeep.expensetracker.util.ReportCsvExporter;
+import com.namandeep.expensetracker.util.ReportPdfExporter;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -66,6 +67,27 @@ public class ReportController {
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"financial-report.csv\"")
                 .contentType(MediaType.parseMediaType("text/csv"))
+                .body(resource);
+    }
+
+    @GetMapping(value = "/export/pdf", produces = MediaType.APPLICATION_PDF_VALUE)
+    @Operation(
+            summary = "Export financial report as PDF",
+            description = "Downloads aggregated income, expense, net savings, transaction totals, and generated date as a PDF file.")
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "PDF file returned",
+                    content = @Content(mediaType = MediaType.APPLICATION_PDF_VALUE)),
+            @ApiResponse(responseCode = "401", description = "Not authenticated")
+    })
+    public ResponseEntity<Resource> exportPdf(Authentication authentication) {
+        ReportResponse report = reportService.generateReport(authentication.getName());
+        ByteArrayResource resource = new ByteArrayResource(ReportPdfExporter.toPdf(report));
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"financial-report.pdf\"")
+                .contentType(MediaType.APPLICATION_PDF)
                 .body(resource);
     }
 }
