@@ -7,13 +7,47 @@
 ![JWT](https://img.shields.io/badge/JWT-Authentication-yellow)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-A modern **Expense Tracker REST API** built using **Spring Boot** that helps users manage income, expenses, budgets, and financial reports securely.
+## 📌 Overview
 
-The application follows modern backend development practices with **JWT Authentication**, **Spring Security**, **Flyway Database Migration**, and **RESTful API Design**.
+Expense Tracker API is a backend application developed using **Spring Boot** that enables users to securely manage their personal finances through RESTful APIs.
+
+The application includes secure authentication, income and expense management, budgeting, category management, reporting, and API documentation. It is designed using a clean layered architecture and follows modern backend development practices.
+
+> **Note:** This repository currently contains the backend implementation. A React frontend is planned for a future release.
+
+
+## ⭐ Project Highlights
+
+- 🔐 Secure JWT Authentication & Authorization
+- ⚡ RESTful API built with Spring Boot 3.5
+- 🗄️ MySQL database with Flyway migrations
+- 📖 Interactive API documentation using Swagger/OpenAPI
+- 🛡️ Spring Security for protected endpoints
+- 📊 Budget, Expense, Income & Report modules
+- 📦 Clean layered architecture (Controller → Service → Repository)
+- ☕ Built with Java 21 and Maven
 
 ---
 
 # 🚀 Features
+## 📋 Features Overview
+
+| Module | Status |
+|----------|--------|
+| 🔐 JWT Authentication | ✅ Complete |
+| 👤 User Management | ✅ Complete |
+| 💸 Expense Management | ✅ Complete |
+| 💰 Income Management | ✅ Complete |
+| 🏷 Category Management | ✅ Complete |
+| 📊 Budget Management | ✅ Complete |
+| 📈 Reports | ✅ Complete |
+| 📄 CSV Export | ✅ Complete |
+| 📑 PDF Export | ✅ Complete |
+| 📚 Swagger Documentation | ✅ Complete |
+| 🛡 Spring Security | ✅ Complete |
+| 🗄 MySQL Integration | ✅ Complete |
+| 🚧 React Frontend | Planned |
+| 🚀 Cloud Deployment | Planned |
 
 ## 🔐 Authentication
 
@@ -87,19 +121,19 @@ The application follows modern backend development practices with **JWT Authenti
 
 # 🛠 Tech Stack
 
-| Technology | Used |
-|------------|------|
-| Java 21 | ✅ |
-| Spring Boot | ✅ |
-| Spring Security | ✅ |
-| JWT | ✅ |
-| Spring Data JPA | ✅ |
-| Hibernate | ✅ |
-| Flyway | ✅ |
-| MySQL | ✅ |
-| Maven | ✅ |
-| Swagger OpenAPI | ✅ |
+# 🛠 Tech Stack
 
+| Category | Technologies |
+|----------|--------------|
+| **Language** | Java 21 |
+| **Framework** | Spring Boot 3.5 |
+| **Security** | Spring Security, JWT |
+| **Database** | MySQL |
+| **ORM** | Hibernate, Spring Data JPA |
+| **Database Migration** | Flyway |
+| **API Documentation** | Swagger / OpenAPI |
+| **Build Tool** | Maven |
+| **Version Control** | Git & GitHub |
 ---
 
 # 📷 Screenshots
@@ -138,6 +172,54 @@ MySQL Database
 
 ---
 
+# 🏗️ System Architecture
+
+```text
+                Client
+      (Swagger / React Frontend)
+
+                    │
+                    ▼
+
+         Spring Boot REST API
+
+                    │
+                    ▼
+
+             Controller Layer
+
+                    │
+                    ▼
+
+              Service Layer
+
+                    │
+                    ▼
+
+           Repository Layer
+
+                    │
+                    ▼
+
+             MySQL Database
+```
+
+### Request Flow
+
+```
+Client
+   ↓
+REST API
+   ↓
+Controller
+   ↓
+Service
+   ↓
+Repository
+   ↓
+MySQL
+```
+
 # 📡 API Documentation
 
 Swagger UI
@@ -173,20 +255,54 @@ mvn spring-boot:run
 # 📂 Project Structure
 
 ```
-src
-├── config
-├── controller
-├── dto
-├── entity
-├── exception
-├── repository
-├── security
-├── service
-├── util
-└── resources
+# 📂 Project Structure
+
+```text
+Expense-Tracker
+│
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com.namandeep.expensetracker
+│   │   │       ├── config
+│   │   │       ├── controller
+│   │   │       ├── dto
+│   │   │       ├── entity
+│   │   │       ├── exception
+│   │   │       ├── repository
+│   │   │       ├── security
+│   │   │       ├── service
+│   │   │       ├── util
+│   │   │       └── ExpenseTrackerApplication.java
+│   │   └── resources
+│   │
+│   └── test
+│
+├── screenshots
+├── README.md
+├── LICENSE
+├── pom.xml
+└── .gitignore
+```
 ```
 
 ---
+
+# 📚 Key Learning Outcomes
+
+Building this project helped me gain practical experience in:
+
+- REST API Development using Spring Boot
+- Layered Architecture (Controller → Service → Repository)
+- JWT Authentication & Spring Security
+- Database Design with MySQL
+- Database Versioning using Flyway
+- Hibernate & Spring Data JPA
+- API Documentation using Swagger/OpenAPI
+- Exception Handling & Validation
+- Git & GitHub Workflow
+- Maven Project Management
+
 
 # 🔮 Future Improvements
 
