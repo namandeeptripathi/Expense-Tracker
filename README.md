@@ -354,78 +354,94 @@ The Entity Relationship Diagram (ERD) is available here:
 
 ➡️ **[View ER Diagram](assets/ER-Diagram.md)**
 ```
-```
-
 ---
 
 # 📚 Key Learning Outcomes
 
 Building this project helped me gain practical experience in:
 
-- REST API Development using Spring Boot
+- REST API development using Spring Boot
 - Layered Architecture (Controller → Service → Repository)
 - JWT Authentication & Spring Security
-- Database Design with MySQL
-- Database Versioning using Flyway
+- MySQL Database Design
+- Flyway Database Migration
 - Hibernate & Spring Data JPA
-- API Documentation using Swagger/OpenAPI
-- Exception Handling & Validation
+- REST API Documentation using Swagger/OpenAPI
+- Exception Handling & Bean Validation
 - Git & GitHub Workflow
 - Maven Project Management
 
+---
 
 # 🔮 Future Improvements
 
+The following features are planned for future releases:
+
 - React Frontend
-- Dashboard Charts
-- Budget Analytics
+- Interactive Dashboard
+- Charts & Analytics
+- Budget Insights
 - Notifications
-- Docker
+- Docker Support
 - Cloud Deployment
-- Mobile App
+- Mobile Application
 
-
+---
 
 # 🚧 Project Status
 
-Current Status: **Backend Completed ✅**
+**Current Version:** Backend v1.0 ✅
 
-This project currently provides a production-style REST API built with Spring Boot.
+### ✔ Completed
 
-### Completed
+- JWT Authentication
+- User Management
+- Expense Management
+- Income Management
+- Category Management
+- Budget Management
+- Reports
+- Swagger Documentation
+- Flyway Database Migration
+- MySQL Integration
 
-- ✅ JWT Authentication
-- ✅ User Management
-- ✅ Expense Management
-- ✅ Income Management
-- ✅ Category Management
-- ✅ Budget Management
-- ✅ Reports
-- ✅ Swagger Documentation
-- ✅ Flyway Database Migration
-- ✅ MySQL Integration
+### 🚀 Planned
 
-### Planned
+- React Frontend
+- Interactive Dashboard
+- Charts & Analytics
+- Docker Support
+- Cloud Deployment
 
-- 🔜 React Frontend
-- 🔜 Interactive Dashboard
-- 🔜 Charts & Analytics
-- 🔜 Docker Support
-- 🔜 Cloud Deployment
+---
 
 # 🧪 API Testing
 
-This project uses **Swagger OpenAPI** for interactive API testing.
+This project provides interactive API documentation using **Swagger OpenAPI**.
 
-After starting the application, open:
+After starting the application locally, visit:
 
 ```text
 http://localhost:8080/swagger-ui/index.html
 ```
 
-A Postman collection will be added in a future update.
+> **Note:** Swagger UI is available only while the Spring Boot application is running locally.
 
 ---
+
+# 👨‍💻 Author
+
+**Naman Deep Tripathi**
+
+Java Backend Developer
+
+GitHub: https://github.com/namandeeptripathi
+
+---
+
+⭐ If you found this project helpful, consider giving it a star.
+
+
 # 👨‍💻 Author
 
 **Naman Deep Tripathi**
