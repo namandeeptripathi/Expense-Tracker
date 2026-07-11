@@ -121,8 +121,6 @@ The application includes secure authentication, income and expense management, b
 
 # 🛠 Tech Stack
 
-# 🛠 Tech Stack
-
 | Category | Technologies |
 |----------|--------------|
 | **Language** | Java 21 |
@@ -220,7 +218,7 @@ Repository
 MySQL
 ```
 
-
+---
 
 # 📡 API Documentation
 
@@ -278,31 +276,47 @@ http://localhost:8080/v3/api-docs
 
 ---
 
+
 # ⚙️ Installation
 
-Clone the repository
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/namandeeptripathi/Expense-Tracker.git
 ```
 
-Go to the project
+### 2. Navigate to the project
 
 ```bash
 cd Expense-Tracker
 ```
 
-Run the application
+### 3. Configure MySQL
+
+Create a MySQL database named:
+
+```text
+expense_tracker
+```
+
+Update the database credentials in `application.yml` (or set the required environment variables).
+
+### 4. Run the application
 
 ```bash
 mvn spring-boot:run
 ```
 
+### 5. Open Swagger UI
+
+After the application starts successfully, open:
+
+```text
+http://localhost:8080/swagger-ui/index.html
+```
+
 ---
 
-# 📂 Project Structure
-
-```
 # 📂 Project Structure
 
 ```text
@@ -370,7 +384,7 @@ Building this project helped me gain practical experience in:
 - Cloud Deployment
 - Mobile App
 
----
+
 
 # 🚧 Project Status
 
@@ -410,6 +424,8 @@ http://localhost:8080/swagger-ui/index.html
 ```
 
 A Postman collection will be added in a future update.
+
+---
 # 👨‍💻 Author
 
 **Naman Deep Tripathi**
