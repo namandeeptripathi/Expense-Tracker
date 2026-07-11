@@ -1,6 +1,7 @@
 package com.namandeep.expensetracker.repository;
 
 import com.namandeep.expensetracker.entity.Income;
+import java.math.BigDecimal;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -8,6 +9,8 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 /** Database access for user-owned income records. */
 public interface IncomeRepository extends JpaRepository<Income, Long>, JpaSpecificationExecutor<Income> {
@@ -18,4 +21,10 @@ public interface IncomeRepository extends JpaRepository<Income, Long>, JpaSpecif
 
     @EntityGraph(attributePaths = "user")
     Optional<Income> findByIdAndUserId(Long id, Long userId);
+
+    @Query("select coalesce(sum(income.amount), 0) from Income income where income.user.id = :userId")
+    BigDecimal sumAmountByUserId(@Param("userId") Long userId);
+
+    @Query("select count(income) from Income income where income.user.id = :userId")
+    long countByUserId(@Param("userId") Long userId);
 }

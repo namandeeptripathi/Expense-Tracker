@@ -2,6 +2,7 @@ package com.namandeep.expensetracker.repository;
 
 import com.namandeep.expensetracker.entity.Expense;
 import com.namandeep.expensetracker.entity.Category;
+import java.math.BigDecimal;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +25,12 @@ public interface ExpenseRepository extends JpaRepository<Expense, Long>, JpaSpec
     Optional<Expense> findByIdAndUserId(Long id, Long userId);
 
     long countByCategoryId(Long categoryId);
+
+    @Query("select coalesce(sum(expense.amount), 0) from Expense expense where expense.user.id = :userId")
+    BigDecimal sumAmountByUserId(@Param("userId") Long userId);
+
+    @Query("select count(expense) from Expense expense where expense.user.id = :userId")
+    long countByUserId(@Param("userId") Long userId);
 
     @Modifying(flushAutomatically = true, clearAutomatically = true)
     @Query("update Expense expense set expense.category = :targetCategory where expense.category.id = :sourceCategoryId")
