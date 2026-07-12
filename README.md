@@ -138,7 +138,7 @@ The application includes secure authentication, income and expense management, b
 
 ### Swagger API
 
-![Swagger API](screenshots/swagger-home.png)
+![Swagger API](./screenshots/swagger-home.png)
 
 ---
 
